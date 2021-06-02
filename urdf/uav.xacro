@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<robot name="uav1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:arg name="robot_name" default="uav1" />
+  
+  <link name="base_link" />
+  
+  <joint name="base_intertial_joint" type="fixed" >
+    <parent link="base_link" />
+    <child link="inertial_link" />
+  </joint>
+  
+  <link name="inertial_link">
+    <inertial>
+      <mass value="7.0" />
+      <inertia  ixx="0.083" iyy="0.083" izz="0.083" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    
+    <collision name="collision">
+      <geometry>
+	<cylinder length="0.4" radius="0.47" />
+      </geometry>
+    </collision>
+
+    <!-- visual to debug the collision shape -->
+    <!--
+	<visual name="visual">
+	<geometry>
+	<cylinder length="0.4" radius="0.47" />
+	</geometry>
+	</visual>
+    -->
+    
+    <visual name="hex_visual">
+      <geometry>
+	<mesh filename="file://meshes/hex_mesh.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  
+  
+  <gazebo>    
+    <plugin name="gazebo_tutorials" filename="libdrone_control.so">
+      <robotNamespace>$(arg robot_name)</robotNamespace>
+    </plugin>
+    <!--
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate>
+      <bodyName>$(arg robot_name)/base_link</bodyName>
+      <topicName>state</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+      <xyzOffsets>0 0 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
+    </plugin>
+    -->
+  </gazebo>
+
+  <!-- add a velodyne -->
+  <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+  <VLP-16 parent="base_link" topic="/$(arg robot_name)/velodyne_points" hz="10" samples="440" gpu="false" min_range="0.9">
+    <origin xyz="0 0 0.2" rpy="0 0 0" />
+  </VLP-16>
+  
+  <!-- add an rgbd camera -->
+  <xacro:include filename="$(find core_gazebo_sim)/urdf/rgbd_camera.urdf.xacro"/>
+  <rgbd_camera name="rgbd_camera" parent="base_link">
+    <origin xyz="0 0 0.3" rpy="0 0 0" />
+  </rgbd_camera>
+
+  <!-- add a stereo camera -->
+  <xacro:include filename="$(find core_gazebo_sim)/urdf/stereo_camera.urdf.xacro"/>
+  <stereo_camera frame_name="front_stereo" parent="base_link">
+    <origin xyz="0.4 0 0.1" rpy="0 0 0" />
+  </stereo_camera>
+   
+</robot>

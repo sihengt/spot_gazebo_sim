@@ -1,0 +1,21 @@
+<launch>
+  
+  <arg name="robot_name" default="spot1" />
+
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="0.5" />
+  
+  <!-- static transforms -->
+  <node name="world_to_$(arg robot_name)_map" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /world $(arg robot_name)/map 10"/>
+  
+  <param name="/$(arg robot_name)/robot_description" command="$(find xacro)/xacro.py '$(find core_gazebo_sim)/urdf/spot.urdf.xacro' robot_name:=$(arg robot_name)" />
+  
+  <group ns="$(arg robot_name)">
+    <!-- spawn simulated spot -->
+    <node name="spawn_spot" pkg="gazebo_ros" type="spawn_model" args="-param /$(arg robot_name)/robot_description -urdf -model $(arg robot_name) -x $(arg x) -y $(arg y) -z $(arg z)"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <param name="tf_prefix" value="/$(arg robot_name)" />
+    </node>
+    
+</launch>

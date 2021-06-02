@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot name="tortoisebot">
+
+
+  <link name="base_link">
+    <collision>
+      <geometry>
+        <box size="0.6 0.3 0.3"/>
+      </geometry>
+      <material name="silver">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </collision>
+    
+    <inertial>
+      <mass>
+	7.0
+      </mass>
+      <inertia ixx="0.083" iyy="0.083" izz="0.083" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+
+    
+    <visual>
+      <geometry>
+        <box size="0.6 0.3 0.3"/>
+      </geometry>
+      <material name="silver">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </visual>
+
+  </link>
+
+</robot>

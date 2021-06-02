@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+  
+  <xacro:macro name="stereo_camera" params="frame_name parent *origin">
+    <joint name="${frame_name}_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${frame_name}_link"/>
+    </joint>
+
+    <!-- X forward camera frame -->
+    <link name="${frame_name}_link">
+      <inertial>
+        <mass value="0.00001" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="5.8083e-4" ixy="0" ixz="0" iyy="3.0833e-5" iyz="0" izz="5.9083e-4" />
+      </inertial>
+      <!--
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+	  <cylinder length="0.1" radius="0.1" />
+        </geometry>
+      </visual>
+      -->
+      
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.035 0.185 0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    
+    <!-- Z forward camera frame -->
+    <joint name="${frame_name}_depth_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+      <parent link="${frame_name}_link" />
+      <child link="${frame_name}"/>
+    </joint>
+
+    <link name="${frame_name}"/>
+    
+    <gazebo reference="${frame_name}_link">
+      <sensor type="multicamera" name="stereo_camera">
+	<update_rate>10.0</update_rate>
+	<camera name="left">
+	  <!-- <horizontal_fov>1.3962634</horizontal_fov> -->
+	  <horizontal_fov>1.8</horizontal_fov>
+	  <image>
+	    <width>640</width>
+	    <height>480</height>
+	    <format>R8G8B8</format>
+	  </image>
+	  <clip>
+	    <near>0.02</near>
+	    <far>300</far>
+	  </clip>
+	  <noise>
+	    <type>gaussian</type>
+	    <mean>0.0</mean>
+	    <stddev>0.007</stddev>
+	  </noise>
+	</camera>
+	<camera name="right">
+	  <pose>0 -0.07 0 0 0 0</pose>
+	  <horizontal_fov>1.8</horizontal_fov>
+	  <image>
+	    <width>640</width>
+	    <height>480</height>
+	    <format>R8G8B8</format>
+	  </image>
+	  <clip>
+	    <near>0.02</near>
+	    <far>300</far>
+	  </clip>
+	  <noise>
+	    <type>gaussian</type>
+	    <mean>0.0</mean>
+	    <stddev>0.007</stddev>
+	  </noise>
+	</camera>
+	<plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
+	  <alwaysOn>true</alwaysOn>
+	  <updateRate>0.0</updateRate>
+	  <cameraName>${frame_name}</cameraName>
+	  <imageTopicName>image_raw</imageTopicName>
+	  <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+	  <frameName>${frame_name}</frameName>
+	  <!--<rightFrameName>right_camera_optical_frame</rightFrameName>-->
+	  <hackBaseline>0.07</hackBaseline>
+	  <distortionK1>0.0</distortionK1>
+	  <distortionK2>0.0</distortionK2>
+	  <distortionK3>0.0</distortionK3>
+	  <distortionT1>0.0</distortionT1>
+	  <distortionT2>0.0</distortionT2>
+	</plugin>
+      </sensor>
+    </gazebo>
+    
+  </xacro:macro>
+</robot>
