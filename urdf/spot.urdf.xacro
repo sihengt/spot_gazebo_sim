@@ -3,12 +3,12 @@
     <link name="body">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/body.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/body.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/body_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/body_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -37,12 +37,12 @@
     <link name="front_left_hip">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_left_hip.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_left_hip.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_left_hip_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_left_hip_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -56,12 +56,12 @@
     <link name="front_left_upper_leg">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_left_upper_leg.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_left_upper_leg.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_left_upper_leg_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_left_upper_leg_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -75,12 +75,12 @@
     <link name="front_left_lower_leg">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_left_lower_leg.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_left_lower_leg.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_left_lower_leg_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_left_lower_leg_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -94,12 +94,12 @@
     <link name="front_right_hip">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_right_hip.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_right_hip.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_right_hip_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_right_hip_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -113,12 +113,12 @@
     <link name="front_right_upper_leg">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_right_upper_leg.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_right_upper_leg.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_right_upper_leg_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_right_upper_leg_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -132,12 +132,12 @@
     <link name="front_right_lower_leg">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_right_lower_leg.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_right_lower_leg.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/front_right_lower_leg_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/front_right_lower_leg_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -151,12 +151,12 @@
     <link name="rear_left_hip">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_left_hip.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_left_hip.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_left_hip_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_left_hip_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -170,12 +170,12 @@
     <link name="rear_left_upper_leg">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_left_upper_leg.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_left_upper_leg.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_left_upper_leg_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_left_upper_leg_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -189,12 +189,12 @@
     <link name="rear_left_lower_leg">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_left_lower_leg.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_left_lower_leg.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_left_lower_leg_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_left_lower_leg_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -208,12 +208,12 @@
     <link name="rear_right_hip">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_right_hip.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_right_hip.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_right_hip_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_right_hip_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -227,12 +227,12 @@
     <link name="rear_right_upper_leg">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_right_upper_leg.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_right_upper_leg.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_right_upper_leg_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_right_upper_leg_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -246,12 +246,12 @@
     <link name="rear_right_lower_leg">
         <visual>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_right_lower_leg.dae" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_right_lower_leg.dae" />
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <mesh filename="package://spot_description/meshes/rear_right_lower_leg_collision.stl" />
+                <mesh filename="package://spot_gazebo_sim/meshes/rear_right_lower_leg_collision.stl" />
             </geometry>
         </collision>
     </link>
@@ -264,6 +264,6 @@
     </joint>
 
     <!-- Standard accessories. -->
-    <xacro:include filename="$(find spot_description)/urdf/accessories.urdf.xacro" />
+    <xacro:include filename="$(find spot_gazebo_sim)/urdf/accessories.urdf.xacro" />
 
 </robot>
