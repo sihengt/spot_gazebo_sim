@@ -1,6 +1,6 @@
 <launch>
   
-  <arg name="robot_name" default="spot1" />
+  <arg name="robot_name" default="spot" />
 
   <arg name="x" default="0" />
   <arg name="y" default="0" />
@@ -9,7 +9,7 @@
   <!-- static transforms -->
   <node name="world_to_$(arg robot_name)_map" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /world $(arg robot_name)/map 10"/>
   
-  <param name="/$(arg robot_name)/robot_description" command="$(find xacro)/xacro.py '$(find spot_gazebo_sim)/urdf/spot.urdf.xacro' robot_name:=$(arg robot_name)" />
+  <param name="/$(arg robot_name)/robot_description" command="$(find xacro)/xacro '$(find spot_gazebo_sim)/urdf/spot.urdf.xacro' robot_name:=$(arg robot_name)" />
   
   <group ns="$(arg robot_name)">
     <!-- spawn simulated spot -->

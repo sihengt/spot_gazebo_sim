@@ -23,9 +23,9 @@ catkin_package(
 link_directories(${GAZEBO_LIBRARY_DIRS})
 include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS} include)
 
-add_library(drone_control src/drone_control_plugin.cpp)
-target_link_libraries(drone_control ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+add_library(spot_control src/drone_control_plugin.cpp)
+target_link_libraries(spot_control ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
-# install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-# install(DIRECTORY urdf DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-# install(DIRECTORY meshes DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(DIRECTORY urdf DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(DIRECTORY meshes DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
